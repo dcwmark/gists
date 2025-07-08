@@ -18,7 +18,7 @@ const apiRoutes = (app) => {
     const requestPath = req.path;
     let matchedBaseUrl, matchedRouter;
 
-    // --- Step 1: Find the longest matching prefix key ---
+    // Find the longest matching prefix key ---
     for (const baseUrl of Object.keys(pathRouter)
                                 .sort((a, b) => b.length - a.length)) {
       if (
@@ -31,7 +31,7 @@ const apiRoutes = (app) => {
       }
     }
 
-    // --- Step 2: Invoke the matched middleware/router or handle default ---
+    // Invoke the matched middleware/router or handle default ---
     if (matchedRouter) {
       const originalUrl = req.url;
       const originalPath = req.path;
